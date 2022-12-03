@@ -163,9 +163,10 @@ public class ControllerTablas extends HttpServlet {
 
         PrintWriter out;
         try {
-            out = response.getWriter();
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
+            out = response.getWriter();
+
             out.print(data);
             out.flush();
         } catch (IOException ex) {
@@ -186,9 +187,10 @@ public class ControllerTablas extends HttpServlet {
 
         PrintWriter out;
         try {
-            out = response.getWriter();
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
+            out = response.getWriter();
+
             out.print(data);
             out.flush();
         } catch (IOException ex) {

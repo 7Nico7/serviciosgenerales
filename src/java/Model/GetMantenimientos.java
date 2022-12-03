@@ -36,7 +36,7 @@ public class GetMantenimientos {
                 M.setEvidenciaVideo(rs.getString("archivo"));
                 M.setNombre_archivo(rs.getString("nombre_archivo"));
                 M.setDias_restantes(rs.getString("dias_restantes"));
-                
+
                 M.setEvidenciaReporte(rs.getString("archivo2"));
                 M.setNombre_archivo_reporte(rs.getString("nombre_archivo2"));
                 M.setProximo_mantenimiento(rs.getString("proximo_mantenimiento"));
@@ -73,23 +73,26 @@ public class GetMantenimientos {
 
     private String SQL(String tabla) {
         String sql = """
-         Select b.cve_bienes, cve_fecha_mante_camb as cve_mantenimiento, tipo, num_inventario, fecha, 
-                     (90 - DATEDIFF(CURDATE(), fecha)) as dias_restantes, descripcion, DATE_ADD(fecha, INTERVAL 90 DAY) as proximo_mantenimiento, 
-                     archivo, nombre_archivo nombre_archivo, archivo2, nombre_archivo2 from bienes as b
-                     inner join fecha_mante_camb as mante on b.cve_bienes=mante.cve_bienes
-                     inner join tipoBien as tipoB on b.cve_tipoBien=tipoB.cve_tipoBien""";
+Select b.cve_bienes, cve_fecha_mante_camb as cve_mantenimiento, tipo, num_inventario, fecha, 
+                              (90 - DATEDIFF(CURDATE(), fecha)) as dias_restantes, descripcion, DATE_ADD(fecha, INTERVAL 90 DAY) as proximo_mantenimiento, 
+                              archivo, nombre_archivo nombre_archivo, archivo2, nombre_archivo2 from bienes as b
+                              inner join fecha_mante_camb as mante on b.cve_bienes=mante.cve_bienes
+                              inner join tipoBien as tipoB on b.cve_tipoBien=tipoB.cve_tipoBien""";
         switch (tabla) {
             case "todos":
-                sql += ";";
+                sql += " where (90 - DATEDIFF(CURDATE(), fecha)) > (-10);";
                 break;
             case "climas":
-                sql += " where tipo= \"climas\";";
+                sql += " where (90 - DATEDIFF(CURDATE(), fecha)) > (-10) && tipo= \"climas\";";
                 break;
             case "extintores":
-                sql += " where tipo= \"extintores\";";
+                sql += " where (90 - DATEDIFF(CURDATE(), fecha)) > (-10) && tipo= \"extintores\";";
                 break;
             case "impresoras":
-                sql += " where tipo= \"impresoras\";";
+                sql += " where (90 - DATEDIFF(CURDATE(), fecha)) > (-10) && tipo= \"impresoras\";";
+                break;
+            case "historial":
+                sql += ";";
                 break;
             default:
                 sql = null;

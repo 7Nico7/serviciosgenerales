@@ -136,12 +136,77 @@ $(document).ready(function () {
                     {data: 'status'},
                     {defaultContent: " <button class='btn btn-sm btn-info btnEditar'><span class='material-icons'>edit</span></button>\n\
                     <button  class='btnBorrar btn btn-primary btn-sm'><span class='material-icons'>delete</span></button>\n\
-                    <button class='btn btn-sm btn-success btnEvidencia'><span class='material-icons'>smart_display</span></button>\n\
+                    <button class='btn btn-sm btn-success btnEvidencia1'><span class='material-icons'>smart_display</span></button>\n\
+                    <button class='btn btn-sm btn-primary btnEvidencia2'><span class='material-icons'>picture_as_pdf</span></button>\n\
                     <button class='btn btn btn-primary btn-sm btnInfo'><span class='material-icons'>feed</span></button>"}
                 ]
     });
-    
-    
+
+
+
+    //btoton Evidencia 
+    $("#example tbody").on('click', '.btnEvidencia1', function () {
+        let data = table.row($(this).parents()).data();
+        evidencia("video", data);
+    });
+
+    $("#example tbody").on('click', '.btnEvidencia2', function () {
+        let data = table.row($(this).parents()).data();
+        evidencia("reporte", data);
+    });
+
+
+    function evidencia(evid, data1) {
+        // e.preventDefault(); //evita la carga total de la apagina
+
+        var cve_bienes = data1.cve_bienes; //capturo el ID 
+        var pdf = "";
+        var video = "";
+        var datos = 'cve_bienes=' + cve_bienes;
+
+        $.ajax({
+            type: 'GET',
+            url: 'ControllerEvidencia?pagina=bienes&' + datos,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                if (data.cve_bienes !== 0) {
+                    if (evid === "video") {
+                        video = data.nombre_archivo;
+                        if (video.trim().length !== 0 && video !== " " && video !== "" && video !== null && video !== undefined) {
+                            window.open('pages/evidencia.jsp?video=' + video, '_blank');
+                        } else {
+                            window.open('pages/evidencia.jsp?video=nulo', '_blank');
+                        }
+
+                    }
+
+                    if (evid === "reporte") {
+                        pdf = data.nombre_archivo_Reporte;
+                        if (pdf !== undefined && pdf !== " " && pdf !== "" && pdf !== null && pdf.trim().length !== 0) {
+                            window.open('pages/evidencia.jsp?pdf=' + pdf, '_blank');
+
+                        } else {
+                            window.open('pages/evidencia.jsp?pdf=nulo', '_blank');
+                        }
+                    }
+                } else {
+                    if (evid === "video") {
+
+                        window.open('pages/evidencia.jsp?video=' + "nulo", '_blank');
+                    }
+                    if (evid === "reporte") {
+                        window.open('pages/evidencia.jsp?pdf=' + "nulo", '_blank');
+                    }
+                }
+
+
+
+            }
+        });
+
+    }
+
     //boton editar
     $("#example tbody").on('click', '.btnEditar', function () {
         let data = table.row($(this).parents()).data();

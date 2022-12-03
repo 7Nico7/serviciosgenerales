@@ -26,7 +26,7 @@ for (let dato in data) {
 }
 
 var reporte = data.nombre_archivoReporte;
-if (reporte.trim().length === 0 || pdf === null || pdf === undefined) {
+if (reporte.trim().length === 0 || reporte === null || reporte === undefined) {
     reporte = "nulo";
 }
 

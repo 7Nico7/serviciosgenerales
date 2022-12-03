@@ -10,7 +10,7 @@ import java.util.List;
 
 public class GetArchivos {
 
-    public List<Archivo> getArchivos( int ID, String sql ) {
+    public List<Archivo> getArchivos(int ID, String sql) {
         Archivo list = new Archivo();
         Conexion con = null;
         Connection cn = null;
@@ -19,7 +19,6 @@ public class GetArchivos {
         PreparedStatement ps = null;
 
         try {
-
             con = new Conexion();
             cn = con.getConexion();
             ps = cn.prepareStatement(sql);
@@ -29,13 +28,11 @@ public class GetArchivos {
                 Archivo A = new Archivo();
                 A.setRuta(rs.getString("archivo"));
                 archivos.add(A);
+                
+                Archivo r = new Archivo();
+                r.setRuta(rs.getString("archivo2"));
+                archivos.add(r);
             }
-            while (rs.next()) {
-                Archivo A = new Archivo();
-                A.setRuta(rs.getString("archivo2"));
-                archivos.add(A);
-            }
-
         } catch (SQLException e) {
             System.err.println("ERROR en obtener archivos : " + e);
         } finally {

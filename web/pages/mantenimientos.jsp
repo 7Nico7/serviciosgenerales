@@ -124,6 +124,7 @@ if(session.getAttribute("usuario") != null){
                             <a href='ControllerBienes?selecciono=Mantenimientos&Tipo=climas' class="btn btn-sm btn-primary">Climas</a>
                             <a href='ControllerBienes?selecciono=Mantenimientos&Tipo=impresoras' class="btn btn-sm btn-primary">Impresoras</a> 
                             <a href='ControllerBienes?selecciono=Mantenimientos&Tipo=todos' class="btn btn-sm btn-primary">Todos</a>
+                             <a href='ControllerBienes?selecciono=Mantenimientos&Tipo=historial' class="btn btn-sm btn-primary">Historial</a>
                             <a href='ControllerBienes?selecciono=nuevoMantenimiento' class="btn btn-sm btn-primary">Nuevo</a> 
                         </div>
                     </div>

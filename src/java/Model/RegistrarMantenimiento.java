@@ -65,8 +65,8 @@ public class RegistrarMantenimiento extends Conexion {
                     ps.setString(10, M.getEvidenciaReporte());
                     ps.setString(11, M.getNombre_archivo_reporte());
                 } else {
+                    ps.setString(10, " ");
                     ps.setString(11, " ");
-                    ps.setString(12, " ");
                 }
 
                 ps.executeUpdate();

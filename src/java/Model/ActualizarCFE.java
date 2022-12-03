@@ -92,6 +92,7 @@ public class ActualizarCFE {
         String mensaje = "";
         String sql = "";
         Archivo nuevoArchivo = new Archivo();
+        Archivo nuevoArchivoR = new Archivo();
         SetRutaArchivo guardar = new SetRutaArchivo();
         ValidaCampos valida = new ValidaCampos();
         Connection cn = null;
@@ -123,9 +124,9 @@ public class ActualizarCFE {
                 R.setArchivo(nuevoArchivo.getRuta());
 
                 archivo.eliminarArchivo(R.getEliminarArchivoReporte());
-                nuevoArchivo = guardar.RutaArchivoGuardado(R.getPartReporte());
-                R.setNombre_archivoReporte(nuevoArchivo.getNombre());
-                R.setArchivo_reporte(nuevoArchivo.getRuta());
+                nuevoArchivoR = guardar.RutaArchivoGuardado(R.getPartReporte());
+                R.setNombre_archivoReporte(nuevoArchivoR.getNombre());
+                R.setArchivo_reporte(nuevoArchivoR.getRuta());
             } else if (existeArchivo == true) {
                 sql = """
                   UPDATE recibo SET cve_medidor = ?, recibo_year = ?, periodo = ?, consumo = ?, saldo= ?, archivo = ?, 
@@ -136,16 +137,15 @@ public class ActualizarCFE {
                 nuevoArchivo = guardar.RutaArchivoGuardado(R.getPart());
                 R.setNombre_archivo(nuevoArchivo.getNombre());
                 R.setArchivo(nuevoArchivo.getRuta());
-            }
-            if (archivoReporte == true) {
+            } else if (archivoReporte == true) {
                 sql = """
                   UPDATE recibo SET cve_medidor = ?, recibo_year = ?, periodo = ?, consumo = ?, saldo= ?, archivo2 = ?, 
                       nombre_archivo2 = ?, periodo_inicio = ?, periodo_final = ?
                   where cve_recibo = ?;""";
                 archivo.eliminarArchivo(R.getEliminarArchivoReporte());
-                nuevoArchivo = guardar.RutaArchivoGuardado(R.getPartReporte());
-                R.setNombre_archivoReporte(nuevoArchivo.getNombre());
-                R.setArchivo_reporte(nuevoArchivo.getRuta());
+                nuevoArchivoR = guardar.RutaArchivoGuardado(R.getPartReporte());
+                R.setNombre_archivoReporte(nuevoArchivoR.getNombre());
+                R.setArchivo_reporte(nuevoArchivoR.getRuta());
             } else {
                 sql = """
                   UPDATE recibo SET cve_medidor = ?, recibo_year = ?, periodo = ?, consumo = ?, saldo= ?, periodo_inicio = ?, periodo_final = ?

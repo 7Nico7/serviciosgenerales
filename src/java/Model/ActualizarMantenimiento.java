@@ -29,10 +29,9 @@ public class ActualizarMantenimiento {
 
             //Si hay nueva evidencia
             boolean hayEvidencia = hayPart(M.getPart());
-EliminarArchivo eliminar = new EliminarArchivo();
+            EliminarArchivo eliminar = new EliminarArchivo();
             if (hayEvidencia == true) {
                 //SE elimina la evidencia anterior
-                
 
                 eliminar.eliminarArchivo(M.getEvidenciaEliminar());
 
@@ -41,12 +40,12 @@ EliminarArchivo eliminar = new EliminarArchivo();
                 M.setNombre_archivo(archivo.getNombre());
                 M.setEvidenciaVideo(archivo.getRuta());
             }
-            
+
             boolean hayEvidenciaReporte = hayPart(M.getPartReporte());
-            if (hayEvidenciaReporte==true) {
-                
+            if (hayEvidenciaReporte == true) {
+
                 eliminar.eliminarArchivo(M.getEvidenciaEliminarReporte());
-                
+
                 archivo = guardar.RutaArchivoGuardado(M.getPartReporte());
                 M.setNombre_archivo_reporte(archivo.getNombre());
                 M.setEvidenciaReporte(archivo.getRuta());
@@ -78,7 +77,7 @@ EliminarArchivo eliminar = new EliminarArchivo();
                     ps.setString(8, M.getEvidenciaVideo());
                     ps.setString(9, M.getNombre_archivo());
                     ps.setString(10, M.getCve_mantenimiento());
-                    
+
                 } else if (!StringUtil.isBlank(M.getEvidenciaReporte())) {
                     ps.setString(8, M.getEvidenciaReporte());
                     ps.setString(9, M.getNombre_archivo_reporte());

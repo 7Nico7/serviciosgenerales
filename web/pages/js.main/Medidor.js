@@ -154,52 +154,36 @@ $("#Medidor tbody").on('click', '.btnEvidencia2', function () {
 });
 
 
-function evidencia(evid, data) {
+function evidencia(evid, data1) {
     // e.preventDefault(); //evita la carga total de la apagina
 
-    var cve_medidor = data.cve_medidor; //capturo el ID 
-
+    var cve_medidor = data1.cve_medidor; //capturo el ID 
+    var pdf = "";
     var datos = 'cve_medidor=' + cve_medidor;
+
     $.ajax({
-        url: "ControllerEvidencia?pagina=recibo", type: 'GET', data: datos,
+        type: 'GET',
+        url: 'ControllerEvidencia?pagina=recibo&' + datos,
+        dataType: 'json',
         success: function (data) {
-            var archivo = JSON.parse(data.trim());
+            
+            var r = data.nombre_archivo;
+            var re = data.nombre_archivoReporte;
 
-            if (archivo.cve_medidor !== 0) {
-                var nombre = "";
+            if (data.cve_medidor !== 0 && r.trim().length !== 0 && r !== undefined ) {
                 if (evid === "recibo") {
-                    nombre = archivo.nombre_archivo;
+                    pdf =data.nombre_archivo;
                 }
-
                 if (evid === "reporte") {
-                    nombre === archivo.nombre_archivoReporte;
-                }
-
-                var pdf = "";
-                if (nombre === " " || nombre === null || nombre.trim().length === 0 || nombre === undefined) {
-                    pdf = "nulo";
-                } else {
-                    pdf = nombre;
+                   pdf =  data.nombre_archivoReporte;
                 }
             } else {
-              pdf = "nulo";  
+                pdf = "nulo";
             }
-
-            if (data) {
-
-                if (data.trim() === "nulo") {
-                    swal('Error!', 'El No. es Nulo', 'error');
-                } else if (data.trim() === "invalido") {
-                    swal('Error!', 'El No. Es Invalido', 'error');
-                } else if (data.trim() === null) {
-                    swal('Error!', 'No hay recibo', 'error');
-                } else {
-                    window.open('pages/evidencia.jsp?pdf=' + pdf, '_blank');
-                }
-
-            }
+            window.open('pages/evidencia.jsp?pdf=' + pdf, '_blank');
         }
     });
+
 }
 
 

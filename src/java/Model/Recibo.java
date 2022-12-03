@@ -180,6 +180,8 @@ public class Recibo extends Medidor {
             }
             archivo.setNombre(" ");
             archivo.setRuta(" ");
+            archivoReporte.setNombre(" ");
+            archivoReporte.setRuta(" ");
         } else {
             try {
                 //Guardar recibo

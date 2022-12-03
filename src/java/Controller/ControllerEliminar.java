@@ -145,7 +145,7 @@ public class ControllerEliminar extends HttpServlet {
         try {
             String cve_recibo = request.getParameter("cve_recibo");
             String archivo = request.getParameter("archivo");
-            String reporte = request.getParameter("reporte");
+            String reporte = request.getParameter("archivo_reporte");
             isNumeric id = new isNumeric();
 
             PrintWriter out;
@@ -183,6 +183,7 @@ public class ControllerEliminar extends HttpServlet {
 
                 GetArchivos archivos = new GetArchivos();
                 List<Archivo> lista = archivos.getArchivos(Integer.parseInt(cve_medidor), sql);
+                System.err.println("LISTA : " + lista);
 
                 EliminarMedidor medidor = new EliminarMedidor();
 

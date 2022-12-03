@@ -94,4 +94,62 @@ public class GetBienes extends Conexion {
         }
         return sql;
     }
+
+    public String getMantenimientoId_MasReciente(int cve_bienes) {
+        String sql = """
+                     select cve_bienes, fecha, archivo, nombre_archivo, archivo2, nombre_archivo2 from fecha_mante_camb
+                                           where cve_bienes= ? && (90 - DATEDIFF(CURDATE(), fecha)) > (-10) order by fecha asc limit 1;""";
+        String json = null;
+        Gson gson = new Gson();
+        Conexion con = null;
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        Connection cn = null;
+        Mantenimientos M = new Mantenimientos();
+        try {
+            con = new Conexion();
+            cn = con.getConexion();
+            ps = cn.prepareStatement(sql);
+            ps.setInt(1, cve_bienes);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                M.setCve_bienes(rs.getString("cve_bienes"));
+                M.setFecha_manteni(rs.getString("fecha"));
+                M.setNombre_archivo(rs.getString("nombre_archivo"));
+                M.setNombre_archivo_reporte(rs.getString("nombre_archivo2"));
+            }
+
+            json = gson.toJson(M);
+
+        } catch (SQLException ex) {
+            System.err.println("ERROR EN getBienes por ID mas reciente : " + ex);
+        } finally {
+            try {
+                if (con != null) {
+                    con = null;
+                }
+
+                if (cn != null && cn.isClosed() == false) {
+                    cn.close();
+                    cn = null;
+                }
+
+                if (ps != null && ps.isClosed() == false) {
+                    ps.close();
+                    ps = null;
+                }
+
+                if (rs != null && rs.isClosed() == false) {
+                    rs.close();
+                    rs = null;
+                }
+
+            } catch (SQLException ex) {
+                System.err.println("ERROR en cerrar conexion getRecibo : " + ex);
+            }
+        }
+
+        return json;
+    }
+
 }

@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.GetBienes;
+import Model.GetMantenimientos;
 import Model.GetRecibo;
 import Model.isNumeric;
 import java.io.IOException;
@@ -30,6 +32,9 @@ public class ControllerEvidencia extends HttpServlet {
                     break;
                 case "recibo":
                     evidenciaRecibo(request, response);
+                    break;
+                case "bienes":
+                    evidenciaBienes(request, response);
                     break;
                 default:
                     request.setAttribute("error", "Error: El valor de Pagina no es aceptado pagina= " + pagina);
@@ -73,8 +78,10 @@ public class ControllerEvidencia extends HttpServlet {
 
             //Envia la respuesta al Metodo ajax
             PrintWriter out;
-            out = response.getWriter();
 
+            out = response.getWriter();
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
             // Valida que se reciva algo
             if (cve_medidor == null) {
                 out.print("nulo");
@@ -85,6 +92,36 @@ public class ControllerEvidencia extends HttpServlet {
                 if (numero == true) {
                     GetRecibo recibo = new GetRecibo();
                     String json = recibo.getReciboId_MasReciente(Integer.parseInt(cve_medidor));
+                    out.print(json);
+                } else {
+                    out.print("invalido");
+                }
+            }
+        } catch (IOException ex) {
+            System.err.println("ERROR en evidenciaRecibo : " + ex);
+        }
+    }
+
+    private void evidenciaBienes(HttpServletRequest request, HttpServletResponse response) {
+        String cve_bienes = request.getParameter("cve_bienes");
+        try {
+
+            //Envia la respuesta al Metodo ajax
+            PrintWriter out;
+
+            out = response.getWriter();
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            // Valida que se reciva algo
+            if (cve_bienes == null && StringUtil.isBlank(cve_bienes)) {
+                out.print("nulo");
+            } else {
+                //valida si el ID es un Numero
+                isNumeric ID = new isNumeric();
+                boolean numero = ID.num(cve_bienes);
+                if (numero == true) {
+                    GetBienes mante = new GetBienes();
+                    String json = mante.getMantenimientoId_MasReciente(Integer.parseInt(cve_bienes));
                     out.print(json);
                 } else {
                     out.print("invalido");

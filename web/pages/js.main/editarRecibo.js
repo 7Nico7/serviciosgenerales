@@ -4,25 +4,24 @@ $.each(data, function (i, val) {
             );
 });
 
-
-console.log(recibo);
-
 document.getElementById("cve_recibo").value = recibo.cve_recibo;
 document.getElementById("medidor").value = recibo.cve_medidor;
 document.getElementById("periodoInicio").value = recibo.periodoInicio;
 document.getElementById("periodoFinal").value = recibo.periodoFinal;
 document.getElementById("consumo").value = recibo.consumo;
 document.getElementById("saldo").value = recibo.saldo;
-document.getElementById("eliminarArchivoCFE").value = recibo.archivo;
 
+document.getElementById("eliminarArchivoCFE").value = recibo.archivo;
+document.getElementById("eliminarArchivoReporte").value = recibo.archivo_reporte;
 var re = recibo.nombre_archivo;
 
 if (re.trim().length !== 0) {
     document.getElementById("archivoCFENombre").innerHTML = recibo.nombre_archivo;
 }
 
+
+
 var rep =  recibo.nombre_archivoReporte;
-console.log(rep.trim().length);
 if (rep.trim().length !== 0) {
     document.getElementById("archivoReporteNombre").innerHTML = recibo.nombre_archivoReporte;
 
