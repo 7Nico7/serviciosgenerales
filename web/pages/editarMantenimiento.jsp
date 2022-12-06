@@ -191,8 +191,6 @@ if(session.getAttribute("usuario") != null){
                 </div>
             </div>
         </div>
-    <BODY onload="sinVueltaAtras();" onpageshow="if (event.persisted) sinVueltaAtras();" onunload="">
-
         <script>
             var datos = (${M});
             var data = JSON.parse('${data}');

@@ -118,6 +118,7 @@ if(session.getAttribute("usuario")!= null){
                             <th>Unidad</th>
                             <th>Fecha de Factura</th>
                             <th>Fecha de Instalación</th>
+                            <th>Evidencias</th>
                         </tr>
                     </thead>
                 </table>
@@ -152,6 +153,7 @@ if(session.getAttribute("usuario")!= null){
                                 <th>Tonners Cambiados</th>
                                 <th>Descripción</th>
                                 <th>Nombre de Archivo</th>
+                                <th>Nombre de Reporte</th>
                                 <th>Evidencia</th>
                             </tr>
                         </thead>

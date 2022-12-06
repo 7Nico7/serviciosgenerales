@@ -169,11 +169,11 @@ $(document).ready(function () {
             url: 'ControllerEvidencia?pagina=bienes&' + datos,
             dataType: 'json',
             success: function (data) {
-                console.log(data);
                 if (data.cve_bienes !== 0) {
                     if (evid === "video") {
                         video = data.nombre_archivo;
-                        if (video.trim().length !== 0 && video !== " " && video !== "" && video !== null && video !== undefined) {
+                        
+                        if (video !== undefined && video !== " " && video !== "" && video !== null && video.trim().length !== 0) {
                             window.open('pages/evidencia.jsp?video=' + video, '_blank');
                         } else {
                             window.open('pages/evidencia.jsp?video=nulo', '_blank');
@@ -182,7 +182,8 @@ $(document).ready(function () {
                     }
 
                     if (evid === "reporte") {
-                        pdf = data.nombre_archivo_Reporte;
+                        pdf = data.nombre_archivo_reporte;
+
                         if (pdf !== undefined && pdf !== " " && pdf !== "" && pdf !== null && pdf.trim().length !== 0) {
                             window.open('pages/evidencia.jsp?pdf=' + pdf, '_blank');
 

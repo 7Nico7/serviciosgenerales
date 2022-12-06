@@ -10,8 +10,8 @@ public class RegistrarServicio {
 
     public String RegistrarServicio(Servicios S) {
         String mensaje = "";
-        final String sql = "INSERT servicios(cve_vehiculos, descripcion, fecha, archivo, nombre_archivo)"
-                + " values (?,?,?,?,?);";
+        final String sql = "INSERT servicios(cve_vehiculos, descripcion, fecha, archivo, nombre_archivo, archivo2, nombre_archivo2)"
+                + " values (?,?,?,?,?,?,?);";
         Connection cn = null;
         PreparedStatement ps = null;
         Conexion con = null;
@@ -19,7 +19,7 @@ public class RegistrarServicio {
         //Se arreglo con los campos del formulario
         String[] campos = {id, S.getDescripcion(), S.getFecha()};
         //arreglo con el mensaje si el campo es NULO
-        String[] campoNombre = {"El Campo Vehiculo es NULO", "El Campo Descripcion es NULO",  "El Campo Fecha es NULO"};
+        String[] campoNombre = {"El Campo Vehiculo es NULO", "El Campo Descripcion es NULO", "El Campo Fecha es NULO"};
         //Clase para validar los Campos
         ValidaCampos validar = new ValidaCampos();
         //Se valida los campos
@@ -41,6 +41,14 @@ public class RegistrarServicio {
                 } else {
                     ps.setString(4, " ");
                     ps.setString(5, " ");
+                }
+
+                if (!StringUtil.isBlank(S.getArchivo2())) {
+                    ps.setString(6, S.getArchivo2());
+                    ps.setString(7, S.getNombre_archivo2());
+                } else {
+                    ps.setString(6, " ");
+                    ps.setString(7, " ");
                 }
 
                 ps.executeUpdate();

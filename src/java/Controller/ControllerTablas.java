@@ -16,8 +16,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import org.apache.poi.util.StringUtil;
 
@@ -71,6 +69,30 @@ public class ControllerTablas extends HttpServlet {
                     break;
                 case "DetalleBienes1":
                     TablaDetalleBienes1(request, response);
+                    break;
+                case "Vehiculos":
+                    TablaVehiculos(request, response);
+                    break;
+                case "vehiculosDetalles":
+                    TablaDetallesVehiculos(request, response);
+                    break;
+                case "gasolinas":
+                    TablaGasolinas(request, response);
+                    break;
+                case "gasolinasDetalles":
+                    TablaDetallesGasolinas(request, response);
+                    break;
+                case "servicios":
+                    TablaServicios(request, response);
+                    break;
+                case "serviciosDetalles":
+                    TablaDetalleServicios(request, response);
+                    break;
+                case "salidas":
+                    TablaSalidas(request, response);
+                    break;
+                case "salidasDetalles":
+                    TablaDetalleSalidas(request, response);
                     break;
                 default:
                     request.setAttribute("error", "Error no se reconoce el Parametro Modulo");
@@ -294,5 +316,49 @@ public class ControllerTablas extends HttpServlet {
             System.err.println("ERROR EN TablaDetalleBienes : " + ex);
         }
 
+    }
+
+    private void TablaVehiculos(HttpServletRequest request, HttpServletResponse response) {
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        
+        String data = "";
+        PrintWriter out;
+        try {
+            out = response.getWriter();
+            out.print(data);
+            out.flush();
+        } catch (IOException ex) {
+            System.err.println("ERROR EN ControllerTablas TablaVehiculos: " + ex);
+        }
+
+    }
+
+    private void TablaDetallesVehiculos(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void TablaGasolinas(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void TablaDetallesGasolinas(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void TablaServicios(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void TablaDetalleServicios(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void TablaSalidas(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void TablaDetalleSalidas(HttpServletRequest request, HttpServletResponse response) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

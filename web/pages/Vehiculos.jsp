@@ -114,7 +114,6 @@ if(session.getAttribute("usuario") != null){
                             <tr>                 
                                 <th>ID</th>
                                 <th>Vehiculo</th>
-                                <th>Tipo</th>
                                 <th>No.Serie</th>
                                 <th>Inventario</th>
                                 <th>Placa Anterior</th>

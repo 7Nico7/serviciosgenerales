@@ -210,10 +210,75 @@ $(document).ready(function () {
                     {data: 'serie'},
                     {data: 'unidad'},
                     {data: 'fecha_factura'},
-                    {data: 'fecha_instalacion'}
+                    {data: 'fecha_instalacion'},
+                    {defaultContent: " <button class='btn btn-sm btn-success btnEvidencia'><span class='material-icons'>smart_display</span></button>\n\
+                                        <button class='btn btn-sm btn-primary btnEvidencia2'><span class='material-icons'>picture_as_pdf</span></button>"}
                 ]
     });
 
+    //btoton Evidencia 
+    $("#Bien tbody").on('click', '.btnEvidencia', function () {
+        let data = table1.row($(this).parents()).data();
+        evidencia("video", data);
+    });
+
+    $("#Bien tbody").on('click', '.btnEvidencia2', function () {
+        let data = table1.row($(this).parents()).data();
+        evidencia("reporte", data);
+    });
+
+
+    function evidencia(evid, data1) {
+        // e.preventDefault(); //evita la carga total de la apagina
+
+        var cve_bienes = data1.cve_bienes; //capturo el ID 
+        var pdf = "";
+        var video = "";
+        var datos = 'cve_bienes=' + cve_bienes;
+
+        $.ajax({
+            type: 'GET',
+            url: 'ControllerEvidencia?pagina=bienes&' + datos,
+            dataType: 'json',
+            success: function (data) {
+                if (data.cve_bienes !== 0) {
+                    if (evid === "video") {
+                        video = data.nombre_archivo;
+
+                        if (video !== undefined && video !== " " && video !== "" && video !== null && video.trim().length !== 0) {
+                            window.open('pages/evidencia.jsp?video=' + video, '_blank');
+                        } else {
+                            window.open('pages/evidencia.jsp?video=nulo', '_blank');
+                        }
+
+                    }
+
+                    if (evid === "reporte") {
+                        pdf = data.nombre_archivo_reporte;
+
+                        if (pdf !== undefined && pdf !== " " && pdf !== "" && pdf !== null && pdf.trim().length !== 0) {
+                            window.open('pages/evidencia.jsp?pdf=' + pdf, '_blank');
+
+                        } else {
+                            window.open('pages/evidencia.jsp?pdf=nulo', '_blank');
+                        }
+                    }
+                } else {
+                    if (evid === "video") {
+
+                        window.open('pages/evidencia.jsp?video=' + "nulo", '_blank');
+                    }
+                    if (evid === "reporte") {
+                        window.open('pages/evidencia.jsp?pdf=' + "nulo", '_blank');
+                    }
+                }
+
+
+
+            }
+        });
+
+    }
 
 //OCULTAR FILAS
     const fila_dependencia = table1.column(6);
@@ -385,11 +450,14 @@ $(document).ready(function () {
             {data: 'tonnersCambiados'},
             {data: 'mant_descripcion'},
             {data: 'nombre_archivo'},
-            {defaultContent: "<button class='btn btn-sm btn-success btnEvidencia'><span class='material-icons'>smart_display</span></button>"}
+            {data: 'nombre_archivo_reporte'},
+            {defaultContent: "<button class='btn btn-sm btn-success btnEvidencia'><span class='material-icons'>smart_display</span></button>\n\
+                              <button class='btn btn-sm btn-primary btnEvidencia2'><span class='material-icons'>picture_as_pdf</span></button>"}
+
         ]
     });
 
-//boton Información Detallada del Bien
+//boton evidencia Video
     $("#DetallesBienes tbody").on('click', '.btnEvidencia', function () {
         let data = table.row($(this).parents()).data();
         var archivo = data.nombre_archivo; //capturo el ID 
@@ -399,6 +467,19 @@ $(document).ready(function () {
         }
 
         window.open('pages/evidencia.jsp?video=' + archivo, '_blank');
+
+    });
+
+    //boton evidencia Reporte
+    $("#DetallesBienes tbody").on('click', '.btnEvidencia2', function () {
+        let data = table.row($(this).parents()).data();
+        var archivo = data.nombre_archivo_reporte; //capturo el ID 
+
+        if (archivo === null || archivo === " ") {
+            archivo = "nulo";
+        }
+
+        window.open('pages/evidencia.jsp?pdf=' + archivo, '_blank');
 
     });
 

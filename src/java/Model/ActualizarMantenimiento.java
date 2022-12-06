@@ -164,7 +164,7 @@ public class ActualizarMantenimiento {
         } else if (!StringUtil.isBlank(archivo2)) {
             sql = """
                      UPDATE fecha_mante_camb SET cve_bienes = ?, cve_tipoMantenimiento = ?, cve_fallas = ?, 
-                     fecha = ?, descripcion = ?, cambio_et = ?, tornner_cambiado=?,archivo2 = ?, nombre_archivo2= ?
+                     fecha = ?, descripcion = ?, cambio_et = ?, tornner_cambiado=?, archivo2 = ?, nombre_archivo2= ?
                      where cve_fecha_mante_camb=?""";
         } else {
             sql = """

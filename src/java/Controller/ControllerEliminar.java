@@ -52,45 +52,36 @@ public class ControllerEliminar extends HttpServlet {
     }
 
     private void eliminarBien(HttpServletRequest request, HttpServletResponse response) {
+
         try {
             String cve_bienes = request.getParameter("cve_bienes");
             EliminarBien bien = new EliminarBien();
             PrintWriter out;
             out = response.getWriter();
-            String sql = "select archivo from fecha_mante_camb where cve_bienes = ?;";
-            GetArchivos archivos = new GetArchivos();
-            List<Archivo> lista = archivos.getArchivos(Integer.parseInt(cve_bienes), sql);
-            try {
-                String mensaje = null;
-                if (!StringUtils.isBlank(cve_bienes)) {
-                    if (Integer.parseInt(cve_bienes) > 0) {
-                        mensaje = bien.Eliminar(Integer.parseInt(cve_bienes), lista);
 
-                    } else {
-                        try {
-                            request.setAttribute("error", "Error: El ID no es Correcto");
-                            request.getRequestDispatcher("pages/Error.jsp").forward(request, response);
-                        } catch (ServletException ex) {
-                            Logger.getLogger(ControllerEliminar.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
+            String mensaje = null;
+            if (!StringUtils.isBlank(cve_bienes)) {
+                if (Integer.parseInt(cve_bienes) > 0) {
+                    String sql = "select archivo, archivo2 from fecha_mante_camb where cve_bienes = ?;";
+                    GetArchivos archivos = new GetArchivos();
+                    List<Archivo> lista = archivos.getArchivos(Integer.parseInt(cve_bienes), sql);
+
+                    mensaje = bien.Eliminar(Integer.parseInt(cve_bienes), lista);
+
                 } else {
-                    request.setAttribute("error", "Error: El ID Es NULO ");
-                    try {
-                        request.getRequestDispatcher("pages/Error.jsp").forward(request, response);
-                    } catch (ServletException ex) {
-                        Logger.getLogger(ControllerEliminar.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    out.print("nulo");
                 }
-
-                if (mensaje != null) {
-                    out.print(mensaje);
-                }
-            } catch (NumberFormatException ex) {
-                System.err.println("Error " + ex);
+            } else {
+                out.print("nulo");
             }
-        } catch (IOException ex2) {
-            System.err.println("Error " + ex2);
+
+            if (mensaje != null) {
+                out.print(mensaje);
+            } else {
+                out.print("nulo");
+            }
+        } catch (IOException ex) {
+            System.err.println("error eliminarBien : " + ex);
         }
     }
 
@@ -183,7 +174,6 @@ public class ControllerEliminar extends HttpServlet {
 
                 GetArchivos archivos = new GetArchivos();
                 List<Archivo> lista = archivos.getArchivos(Integer.parseInt(cve_medidor), sql);
-                System.err.println("LISTA : " + lista);
 
                 EliminarMedidor medidor = new EliminarMedidor();
 

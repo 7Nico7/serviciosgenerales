@@ -116,11 +116,19 @@ if(session.getAttribute("usuario") != null){
                                     <label>Descripcón</label>
                                     <textarea id="descripcion" class="form-control" name="descripcion" rows="2" placeholder="Descripción" name='fallas' id="fallas" required="required"></textarea>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="evidencia" id="evidencia" lang="es">
-                                    <label for="evidencia" class="custom-file-label" id="archivo">Subir Evidencia</label>
+                                <div class="form-group col-md-4">
+                                    <div class="form-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="evidencia" id="evidencia" lang="es">
+                                            <label for="evidencia" class="custom-file-label" id="archivo">Subir Evidencia pdf</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="evidencia2" id="evidencia2" lang="es">
+                                        <label for="evidencia2" class="custom-file-label" id="archivo2">Subir Reporte pdf</label>
+                                    </div>
                                 </div>
                             </div>
 

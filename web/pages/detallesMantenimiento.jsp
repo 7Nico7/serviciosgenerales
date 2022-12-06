@@ -13,7 +13,7 @@ if(session.getAttribute("usuario") != null){
         <link rel="stylesheet" type="text/css" href="js/DataTables/datatables.min.css"/>
         <!-- Alerta jquery-->
         <link href="pages/css/sweetalert2.min.css" rel="stylesheet" type="text/css"/>
-        
+
         <title>Servicios Generales</title>
     </head>
     <body>
@@ -102,13 +102,26 @@ if(session.getAttribute("usuario") != null){
                         </div>
                     </div> 
                 </div> 
-                <div class="card ">
-                    <div class="text-light">
-                        <button class="btn btn-success" id="Excel">Excel</button>
-                        <button class="btn btn-danger" value="pdf" id="crear">PDF</button>    
-                    </div>
-                </div>
-                <div id="generaTabla">
+                <div align="center">
+                    <table id="DetallesBienes" class="table table-bordered display nowrap" width="100%">
+                        <thead>
+                            <tr>               
+                                <th>Numero de Bien</th>
+                                <th>No.Mantenimiento</th>
+                                <th>Mantenimiento</th>
+                                <th>Falla</th>
+                                <th>Fecha de Mantenimiento</th>
+                                <th>Proximo Mantenimiento</th>
+                                <th>Dias Restantes</th>
+                                <th>Cambio de Tonner</th>
+                                <th>Tonners Cambiados</th>
+                                <th>Descripción</th>
+                                <th>Nombre de Archivo</th>
+                                <th>Nombre de Reporte</th>
+                                <th>Evidencia</th>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
             </div>
         </div>
@@ -133,6 +146,8 @@ if(session.getAttribute("usuario") != null){
         <script src="js/datatables-buttons-excel-styles.templates.js" type="text/javascript"></script>
         <script>
                 var bien = ${json};
+                var datos = [${json}];
+                
         </script> 
         <script src="pages/js.main/detallesMantenimiento.js" type="text/javascript"></script>
     </body>

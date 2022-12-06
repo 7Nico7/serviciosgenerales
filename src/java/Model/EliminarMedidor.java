@@ -28,13 +28,10 @@ public class EliminarMedidor {
             ps.setInt(1, cve_medidor);
             int seElimino = ps.executeUpdate();
 
-            System.err.println("S###### : " + seElimino + "tamño : " + lista.toString());
-
             EliminarArchivo eliminar = new EliminarArchivo();
             if (seElimino > 0) {
                 for (Archivo archivo : lista) {
                     if (!StringUtil.isBlank(archivo.getRuta())) {
-                        System.err.println("AAAAAAA : " + archivo.getRuta());
                         eliminar.eliminarArchivo(archivo.getRuta());
                     }
                 }

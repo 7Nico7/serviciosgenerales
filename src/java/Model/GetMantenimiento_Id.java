@@ -83,7 +83,7 @@ public class GetMantenimiento_Id {
 
         String sql = """
 select cve_fecha_mante_camb, cve_bienes, tipoM.nombre as mantenimiento, fa.nombre as falla, fecha,(90 - DATEDIFF(CURDATE(), fecha)) as dias_restantes, DATE_ADD(fecha, INTERVAL 90 DAY) as proximo_mantenimiento, descripcion, archivo,  
-                     nombre_archivo, cambio_et, tornner_cambiado from fecha_mante_camb as fechaM
+                     nombre_archivo,archivo2,nombre_archivo2, cambio_et, tornner_cambiado from fecha_mante_camb as fechaM
                      inner join tipo_mantenimiento as tipoM on fechaM.cve_tipoMantenimiento=tipoM.cve_tipoMantenimiento
                      inner join fallas as fa on fechaM.cve_fallas=fa.cve_fallas
                      where cve_bienes= ?;""";
@@ -115,6 +115,9 @@ select cve_fecha_mante_camb, cve_bienes, tipoM.nombre as mantenimiento, fa.nombr
                 M.setNombre_archivo(rs.getString("nombre_archivo"));
                 M.setCambioET(rs.getString("cambio_et"));
                 M.setTonnersCambiados(rs.getString("tornner_cambiado"));
+                
+                M.setNombre_archivo_reporte(rs.getString("nombre_archivo2"));
+                M.setEvidenciaReporte(rs.getString("archivo2"));
 
                 M.setProximo_mantenimiento(rs.getString("proximo_mantenimiento"));
                 M.setDias_restantes(rs.getString("dias_restantes"));
