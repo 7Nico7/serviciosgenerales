@@ -1,0 +1,41 @@
+
+    $("#agregar").click(function () {
+
+      document.getElementById('tablaProductos').insertRow(-1).innerHTML =
+        '<td>1</td><td>Descripcion</td><td>2323</td><td><button class="btn btn-primary btnBorrar">eliminar</button></td></td>'
+
+    });
+
+    $(document).on('click', '.btnBorrar', function (event) {
+      event.preventDefault();
+      $(this).closest('tr').remove();
+    });
+    $("#guardar").click(function () {
+      var listaProductos = obtenerJsonTabla();
+      console.log(listaProductos);
+    });
+
+    function obtenerJsonTabla() {
+      var tabla = document.getElementsByTagName("td");
+      var cont = 0;
+      var lista = [];
+
+      for (let x = 0; x < tabla.length; x++) {
+
+        if (cont === 3) {
+          cont = 0;
+          var producto = {
+            "cve_producto": tabla[x - 3].innerHTML,
+            "descripcion": tabla[x - 2].innerHTML,
+            "cantidad": tabla[x - 1].innerHTML
+          }
+
+          lista.push(producto);
+
+        } else {
+          cont++;
+        }
+      }
+
+      return JSON.stringify(lista);
+    }
