@@ -1,0 +1,755 @@
+Microsoft Windows [Versión 10.0.19044.2251]
+(c) Microsoft Corporation. Todos los derechos reservados.
+
+C:\Users\ssocial>ssh root@10.2.8.126
+The authenticity of host '10.2.8.126 (10.2.8.126)' can't be established.
+ECDSA key fingerprint is SHA256:jOL6d4rdpH1Rtjx5Zh/iqeowNl+0IpC5sQB8XJaqnOs.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? y
+Please type 'yes', 'no' or the fingerprint: yes
+Warning: Permanently added '10.2.8.126' (ECDSA) to the list of known hosts.
+root@10.2.8.126's password:
+Permission denied, please try again.
+root@10.2.8.126's password:
+Last failed login: Wed Dec 28 09:04:40 CST 2022 from 10.111.32.15 on ssh:notty
+There was 1 failed login attempt since the last successful login.
+Last login: Tue Dec 27 15:34:37 2022 from 10.111.22.68
+[root@almacen_cgmaig ~]# history
+    1  hostnamectl set-hostname almacen_cgmaig
+    2  yum -y update
+    3  yum -y install wget
+    4  yum localinstall https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
+    5  yum --enablerepo=mysql80-community install mysql.community-server
+    6  vi /etc/yum.repos.d/mysql-community.repo
+    7  yum -y install mysql-server
+    8  systemctl status mysqld
+    9  systemctl start mysqld
+   10  systemctl enable mysqld
+   11  systemctl status mysqld
+   12  grep 'temporary password' /var/log/mysqld.log
+   13  mysql -u root -p
+   14  systemctl status mysqld
+   15  yum install tomcat
+   16  systemctl status tomc
+   17  systemctl status tomcat
+   18  systemctl start tomcat
+   19  systemctl status tomcat
+   20  systemctl enable tomcat
+   21  cd ..
+   22  ls
+   23  cd etc/
+   24  cd ..
+   25  cd tmp/
+   26  cd vmware-tools-distrib/
+   27  yum install perl
+   28  yum install net-tools
+   29  ./vmware-install.pl
+   30  d /
+   31  cd /
+   32  opt
+   33  cd opt/
+   34  ls
+   35  chmod 777 jdk-17.0.5_linux-x64_bin.tar.gz
+   36  ls
+   37  ls -l
+   38  tar xzf jdk-17.0.5_linux-x64_bin.tar.gz
+   39  ls
+   40  cd /opt/jdk-17.0.5
+   41  alternatives --install /usr/bin/java java /opt/jdk-17.0.5/bin/java 2
+   42*
+   43  alternatives --install /usr/bin/jar jar /otp/jdk-17.0.5/bin/jar 2
+   44  alternatives --install /usr/bin/javac javac /opt/jdk-17.0.5/bin/javac 2
+   45  alternatives --set jar /opt/jdk-17.0.5/bin/jar
+   46  alternatives --set javac /opt/jdk-17.0.5/bin/javac
+   47  java -version
+   48  export JAVA_HOME=/opt/jdk-17.0.5
+   49  export JRE_HOME=/opt/jdk-17.0.5/jre
+   50  export PATH=$PATH:/opt/jdk-17.0.5/bin/:/opt/jdk-17.0.5/jre/bin
+   51  java -version
+   52  history
+[root@almacen_cgmaig ~]# ls
+anaconda-ks.cfg
+[root@almacen_cgmaig ~]# ls -l
+total 4
+-rw-------. 1 root root 1246 dic 27 12:25 anaconda-ks.cfg
+[root@almacen_cgmaig ~]# var
+-bash: var: no se encontró la orden
+[root@almacen_cgmaig ~]# cd /var/
+[root@almacen_cgmaig var]# cd /www/html
+-bash: cd: /www/html: No existe el fichero o el directorio
+[root@almacen_cgmaig var]# cd /www
+-bash: cd: /www: No existe el fichero o el directorio
+[root@almacen_cgmaig var]# cd /www/
+-bash: cd: /www/: No existe el fichero o el directorio
+[root@almacen_cgmaig var]# ls
+adm  cache  crash  db  empty  games  gopher  kerberos  lib  local  lock  log  mail  nis  opt  preserve  run  spool  tmp  yp
+[root@almacen_cgmaig var]# ls -s
+total 8
+0 adm  0 cache  0 crash  0 db  0 empty  0 games  0 gopher  0 kerberos  4 lib  0 local  0 lock  4 log  0 mail  0 nis  0 opt  0 preserve  0 run  0 spool  0 tmp  0 yp
+[root@almacen_cgmaig var]# ls -la
+total 12
+drwxr-xr-x. 19 root root  267 dic 27 12:26 .
+dr-xr-xr-x. 17 root root  224 dic 27 12:24 ..
+drwxr-xr-x.  2 root root    6 abr 10  2018 adm
+drwxr-xr-x.  6 root root   58 dic 27 15:57 cache
+drwxr-xr-x.  2 root root    6 jun  9  2021 crash
+drwxr-xr-x.  3 root root   34 dic 27 15:36 db
+drwxr-xr-x.  3 root root   18 dic 27 12:21 empty
+drwxr-xr-x.  2 root root    6 abr 10  2018 games
+drwxr-xr-x.  2 root root    6 abr 10  2018 gopher
+drwxr-xr-x.  3 root root   18 nov 30 13:01 kerberos
+drwxr-xr-x. 28 root root 4096 dic 27 15:57 lib
+drwxr-xr-x.  2 root root    6 abr 10  2018 local
+lrwxrwxrwx.  1 root root   11 dic 27 12:19 lock -> ../run/lock
+drwxr-xr-x.  7 root root 4096 dic 28 03:39 log
+lrwxrwxrwx.  1 root root   10 dic 27 12:19 mail -> spool/mail
+drwxr-xr-x.  2 root root    6 abr 10  2018 nis
+drwxr-xr-x.  2 root root    6 abr 10  2018 opt
+drwxr-xr-x.  2 root root    6 abr 10  2018 preserve
+lrwxrwxrwx.  1 root root    6 dic 27 12:19 run -> ../run
+drwxr-xr-x.  8 root root   87 dic 27 12:21 spool
+drwxrwxrwt.  3 root root   29 dic 27 15:57 tmp
+-rw-r--r--.  1 root root  163 dic 27 12:19 .updated
+drwxr-xr-x.  2 root root    6 abr 10  2018 yp
+[root@almacen_cgmaig var]# client_loop: send disconnect: Connection reset
+
+C:\Users\ssocial>ls
+"ls" no se reconoce como un comando interno o externo,
+programa o archivo por lotes ejecutable.
+
+C:\Users\ssocial>ls -la
+"ls" no se reconoce como un comando interno o externo,
+programa o archivo por lotes ejecutable.
+
+C:\Users\ssocial>ssh root@10.2.8.126
+root@10.2.8.126's password:
+Last login: Wed Dec 28 10:03:47 2022 from 10.111.32.135
+[root@almacen_cgmaig ~]# ls -la
+total 32
+dr-xr-x---.  3 root root  169 dic 28 10:14 .
+dr-xr-xr-x. 17 root root  260 dic 28 10:42 ..
+-rw-------.  1 root root 1246 dic 27 12:25 anaconda-ks.cfg
+-rw-------.  1 root root 1431 dic 28 11:20 .bash_history
+-rw-r--r--.  1 root root   18 dic 28  2013 .bash_logout
+-rw-r--r--.  1 root root  176 dic 28  2013 .bash_profile
+-rw-r--r--.  1 root root  176 dic 28  2013 .bashrc
+-rw-r--r--.  1 root root  100 dic 28  2013 .cshrc
+-rw-------.  1 root root   59 dic 28 10:14 .mysql_history
+drwxr-----.  3 root root   19 dic 27 15:43 .pki
+-rw-r--r--.  1 root root  129 dic 28  2013 .tcshrc
+[root@almacen_cgmaig ~]# Connection to 10.2.8.126 closed by remote host.
+Connection to 10.2.8.126 closed.
+
+C:\Users\ssocial>ls -la
+"ls" no se reconoce como un comando interno o externo,
+programa o archivo por lotes ejecutable.
+
+C:\Users\ssocial>ssh root@10.2.8.126
+root@10.2.8.126's password:
+Last login: Wed Dec 28 12:19:25 2022 from 10.111.22.68
+[root@almacen_cgmaig ~]# ls
+anaconda-ks.cfg
+[root@almacen_cgmaig ~]# cd /
+[root@almacen_cgmaig /]# ls
+apache-tomcat-10.0.27.tar.gz  boot  etc   lib    media  mysql80-community-release-el8-1.noarch.rpm  proc  run   srv  tmp  var
+bin                           dev   home  lib64  mnt    opt                                         root  sbin  sys  usr
+[root@almacen_cgmaig /]# ls - la
+ls: no se puede acceder a -: No existe el fichero o el directorio
+ls: no se puede acceder a la: No existe el fichero o el directorio
+[root@almacen_cgmaig /]# ls -la
+total 11764
+dr-xr-xr-x.  17 root root     4096 dic 28 11:45 .
+dr-xr-xr-x.  17 root root     4096 dic 28 11:45 ..
+-rw-r--r--.   1 root root 11984522 oct  3 10:53 apache-tomcat-10.0.27.tar.gz
+lrwxrwxrwx.   1 root root        7 dic 27 12:19 bin -> usr/bin
+dr-xr-xr-x.   5 root root     4096 dic 28 12:18 boot
+drwxr-xr-x.  19 root root     3120 dic 28 12:16 dev
+drwxr-xr-x.  82 root root     8192 dic 28 12:16 etc
+drwxr-xr-x.   2 root root        6 abr 10  2018 home
+lrwxrwxrwx.   1 root root        7 dic 27 12:19 lib -> usr/lib
+lrwxrwxrwx.   1 root root        9 dic 27 12:19 lib64 -> usr/lib64
+drwxr-xr-x.   2 root root        6 abr 10  2018 media
+drwxr-xr-x.   3 root root       19 dic 27 12:41 mnt
+-rw-r--r--.   1 root root    30388 oct  4  2019 mysql80-community-release-el8-1.noarch.rpm
+drwxr-xr-x.   4 root root       77 dic 28 10:44 opt
+dr-xr-xr-x. 142 root root        0 dic 28 12:16 proc
+dr-xr-x---.   3 root root      169 dic 28 12:09 root
+drwxr-xr-x.  25 root root      740 dic 28 12:17 run
+lrwxrwxrwx.   1 root root        8 dic 27 12:19 sbin -> usr/sbin
+drwxr-xr-x.   2 root root        6 abr 10  2018 srv
+dr-xr-xr-x.  13 root root        0 dic 28 12:16 sys
+drwxrwxrwt.  18 root root     4096 dic 28 12:19 tmp
+drwxr-xr-x.  13 root root      155 dic 27 12:19 usr
+drwxr-xr-x.  19 root root      267 dic 27 12:26 var
+[root@almacen_cgmaig /]# cd /var
+[root@almacen_cgmaig var]# ls -la
+total 16
+drwxr-xr-x. 19 root root  267 dic 27 12:26 .
+dr-xr-xr-x. 17 root root 4096 dic 28 11:45 ..
+drwxr-xr-x.  2 root root    6 abr 10  2018 adm
+drwxr-xr-x.  5 root root   44 dic 28 09:53 cache
+drwxr-xr-x.  2 root root    6 jun  9  2021 crash
+drwxr-xr-x.  3 root root   34 dic 27 15:36 db
+drwxr-xr-x.  3 root root   18 dic 27 12:21 empty
+drwxr-xr-x.  2 root root    6 abr 10  2018 games
+drwxr-xr-x.  2 root root    6 abr 10  2018 gopher
+drwxr-xr-x.  3 root root   18 nov 30 13:01 kerberos
+drwxr-xr-x. 27 root root 4096 dic 28 11:47 lib
+drwxr-xr-x.  2 root root    6 abr 10  2018 local
+lrwxrwxrwx.  1 root root   11 dic 27 12:19 lock -> ../run/lock
+drwxr-xr-x.  7 root root 4096 dic 28 12:16 log
+lrwxrwxrwx.  1 root root   10 dic 27 12:19 mail -> spool/mail
+drwxr-xr-x.  2 root root    6 abr 10  2018 nis
+drwxr-xr-x.  2 root root    6 abr 10  2018 opt
+drwxr-xr-x.  2 root root    6 abr 10  2018 preserve
+lrwxrwxrwx.  1 root root    6 dic 27 12:19 run -> ../run
+drwxr-xr-x.  8 root root   87 dic 27 12:21 spool
+drwxrwxrwt.  3 root root   29 dic 28 12:18 tmp
+-rw-r--r--.  1 root root  163 dic 27 12:19 .updated
+drwxr-xr-x.  2 root root    6 abr 10  2018 yp
+[root@almacen_cgmaig var]# cd /
+[root@almacen_cgmaig /]# ls -la
+total 11764
+dr-xr-xr-x.  17 root root     4096 dic 28 11:45 .
+dr-xr-xr-x.  17 root root     4096 dic 28 11:45 ..
+-rw-r--r--.   1 root root 11984522 oct  3 10:53 apache-tomcat-10.0.27.tar.gz
+lrwxrwxrwx.   1 root root        7 dic 27 12:19 bin -> usr/bin
+dr-xr-xr-x.   5 root root     4096 dic 28 12:18 boot
+drwxr-xr-x.  19 root root     3120 dic 28 12:16 dev
+drwxr-xr-x.  82 root root     8192 dic 28 12:16 etc
+drwxr-xr-x.   2 root root        6 abr 10  2018 home
+lrwxrwxrwx.   1 root root        7 dic 27 12:19 lib -> usr/lib
+lrwxrwxrwx.   1 root root        9 dic 27 12:19 lib64 -> usr/lib64
+drwxr-xr-x.   2 root root        6 abr 10  2018 media
+drwxr-xr-x.   3 root root       19 dic 27 12:41 mnt
+-rw-r--r--.   1 root root    30388 oct  4  2019 mysql80-community-release-el8-1.noarch.rpm
+drwxr-xr-x.   4 root root       77 dic 28 10:44 opt
+dr-xr-xr-x. 142 root root        0 dic 28 12:16 proc
+dr-xr-x---.   3 root root      169 dic 28 12:09 root
+drwxr-xr-x.  25 root root      740 dic 28 12:17 run
+lrwxrwxrwx.   1 root root        8 dic 27 12:19 sbin -> usr/sbin
+drwxr-xr-x.   2 root root        6 abr 10  2018 srv
+dr-xr-xr-x.  13 root root        0 dic 28 12:16 sys
+drwxrwxrwt.  18 root root     4096 dic 28 12:19 tmp
+drwxr-xr-x.  13 root root      155 dic 27 12:19 usr
+drwxr-xr-x.  19 root root      267 dic 27 12:26 var
+[root@almacen_cgmaig /]# cd /etc/
+[root@almacen_cgmaig etc]# ls -la
+total 1104
+drwxr-xr-x. 82 root root   8192 dic 28 12:16 .
+dr-xr-xr-x. 17 root root   4096 dic 28 11:45 ..
+-rw-r--r--.  1 root root     16 dic 27 12:24 adjtime
+-rw-r--r--.  1 root root   1529 mar 31  2020 aliases
+-rw-r--r--.  1 root root  12288 dic 27 15:39 aliases.db
+drwxr-xr-x.  2 root root   4096 dic 28 10:38 alternatives
+-rw-------.  1 root root    541 ene 13  2022 anacrontab
+-rw-r--r--.  1 root root     55 ago  8  2019 asound.conf
+drwxr-x---.  3 root root     43 dic 27 15:38 audisp
+drwxr-x---.  3 root root     83 dic 27 15:38 audit
+drwxr-xr-x.  2 root root     22 dic 27 15:38 bash_completion.d
+-rw-r--r--.  1 root root   2853 mar 31  2020 bashrc
+drwxr-xr-x.  2 root root      6 sep  1 09:57 binfmt.d
+-rw-r--r--.  1 root root     37 nov 23  2020 centos-release
+-rw-r--r--.  1 root root     51 nov 23  2020 centos-release-upstream
+drwxr-xr-x.  2 root root      6 oct 13  2020 chkconfig.d
+drwxr-xr-x.  2 root root     21 dic 27 15:38 cron.d
+drwxr-xr-x.  2 root root     42 dic 27 15:37 cron.daily
+-rw-------.  1 root root      0 ene 13  2022 cron.deny
+drwxr-xr-x.  2 root root     22 dic 27 15:38 cron.hourly
+drwxr-xr-x.  2 root root      6 jun  9  2014 cron.monthly
+-rw-r--r--.  1 root root    451 jun  9  2014 crontab
+drwxr-xr-x.  2 root root      6 jun  9  2014 cron.weekly
+-rw-------.  1 root root      0 dic 27 12:19 crypttab
+-rw-r--r--.  1 root root   1620 mar 31  2020 csh.cshrc
+-rw-r--r--.  1 root root   1103 mar 31  2020 csh.login
+drwxr-xr-x.  4 root root     78 dic 27 15:37 dbus-1
+drwxr-xr-x.  2 root root     44 dic 27 15:38 default
+drwxr-xr-x.  2 root root     23 dic 27 15:37 depmod.d
+drwxr-x---.  4 root root     53 jun  9  2021 dhcp
+-rw-r--r--.  1 root root   5090 nov 16  2020 DIR_COLORS
+-rw-r--r--.  1 root root   5725 nov 16  2020 DIR_COLORS.256color
+-rw-r--r--.  1 root root   4669 nov 16  2020 DIR_COLORS.lightbgcolor
+-rw-r--r--.  1 root root   1285 sep 30  2020 dracut.conf
+drwxr-xr-x.  2 root root     31 sep 30  2020 dracut.conf.d
+-rw-r--r--.  1 root root    112 sep 30  2020 e2fsck.conf
+drwxr-xr-x.  3 root root     37 dic 27 15:56 egl
+-rw-r--r--.  1 root root      0 mar 31  2020 environment
+-rw-r--r--.  1 root root   1317 abr 10  2018 ethertypes
+-rw-r--r--.  1 root root      0 jun  7  2013 exports
+lrwxrwxrwx.  1 root root     56 dic 27 12:20 favicon.png -> /usr/share/icons/hicolor/16x16/apps/fedora-logo-icon.png
+-rw-r--r--.  1 root root     70 mar 31  2020 filesystems
+drwxr-x---.  7 root root    133 dic 27 15:38 firewalld
+drwxr-xr-x.  3 root root     38 dic 27 15:56 fonts
+-rw-r--r--.  1 root root    465 dic 27 13:29 fstab
+drwxr-xr-x.  2 root root      6 ago  2  2017 gcrypt
+-rw-r--r--.  1 root root   1704 ago 12  2019 GeoIP.conf
+drwxr-xr-x.  3 root root     26 dic 27 15:56 glvnd
+drwxr-xr-x.  2 root root      6 jul 13  2018 gnupg
+-rw-r--r--.  1 root root     94 mar 24  2017 GREP_COLORS
+drwxr-xr-x.  4 root root     40 dic 27 12:20 groff
+-rw-r--r--.  1 root root    475 dic 28 10:44 group
+-rw-r--r--.  1 root root    460 dic 28 10:44 group-
+lrwxrwxrwx.  1 root root     22 dic 27 15:38 grub2.cfg -> ../boot/grub2/grub.cfg
+drwx------.  2 root root    182 dic 27 15:37 grub.d
+----------.  1 root root    376 dic 28 10:44 gshadow
+----------.  1 root root    365 dic 28 10:44 gshadow-
+drwxr-xr-x.  3 root root     20 nov 30 13:01 gss
+-rw-r--r--.  1 root root      9 jun  7  2013 host.conf
+-rw-r--r--.  1 root root     15 dic 27 12:38 hostname
+-rw-r--r--.  1 root root    158 jun  7  2013 hosts
+-rw-r--r--.  1 root root    370 jun  7  2013 hosts.allow
+-rw-r--r--.  1 root root    460 jun  7  2013 hosts.deny
+lrwxrwxrwx.  1 root root     11 dic 27 15:36 init.d -> rc.d/init.d
+-rw-r--r--.  1 root root    511 nov 16  2020 inittab
+-rw-r--r--.  1 root root    942 jun  7  2013 inputrc
+drwxr-xr-x.  2 root root    159 dic 27 15:37 iproute2
+-rw-r--r--.  1 root root     23 nov 23  2020 issue
+-rw-r--r--.  1 root root     22 nov 23  2020 issue.net
+drwxr-xr-x.  3 root root     62 dic 27 15:56 java
+drwxr-xr-x.  2 root root      6 nov 20  2015 jvm
+drwxr-xr-x.  2 root root      6 nov 20  2015 jvm-commmon
+-rw-r--r--.  1 root root   7274 dic 27 15:38 kdump.conf
+drwxr-xr-x.  3 root root     24 dic 27 12:21 kernel
+-rw-r--r--.  1 root root    646 ene 13  2022 krb5.conf
+drwxr-xr-x.  2 root root      6 nov 30 13:01 krb5.conf.d
+-rw-r--r--.  1 root root  27311 dic 28 09:59 ld.so.cache
+-rw-r--r--.  1 root root     28 feb 27  2013 ld.so.conf
+drwxr-xr-x.  2 root root    185 dic 27 15:48 ld.so.conf.d
+-rw-r-----.  1 root root    191 mar  1  2019 libaudit.conf
+drwxr-xr-x.  2 root root     35 dic 27 12:20 libnl
+-rw-r--r--.  1 root root   2391 oct 12  2013 libuser.conf
+-rw-r--r--.  1 root root     19 dic 27 12:24 locale.conf
+lrwxrwxrwx.  1 root root     41 dic 27 12:24 localtime -> ../usr/share/zoneinfo/America/Mexico_City
+-rw-r--r--.  1 root root   2027 ago  6  2019 login.defs
+-rw-r--r--.  1 root root    662 jul 31  2013 logrotate.conf
+drwxr-xr-x.  2 root root     98 dic 28 11:47 logrotate.d
+drwxr-xr-x.  6 root root    100 dic 27 15:38 lvm
+-r--r--r--.  1 root root     33 dic 27 12:20 machine-id
+-rw-r--r--.  1 root root    111 sep 30  2020 magic
+-rw-r--r--.  1 root root   5122 jun  9  2021 makedumpfile.conf.sample
+-rw-r--r--.  1 root root   5171 oct 30  2018 man_db.conf
+drwxr-xr-x.  2 root root      6 nov 20  2015 maven
+-rw-r--r--.  1 root root   1106 sep 30  2020 mke2fs.conf
+drwxr-xr-x.  2 root root     81 dic 27 15:38 modprobe.d
+drwxr-xr-x.  2 root root      6 sep  1 09:57 modules-load.d
+-rw-r--r--.  1 root root      0 jun  7  2013 motd
+lrwxrwxrwx.  1 root root     17 dic 27 12:19 mtab -> /proc/self/mounts
+-rw-r--r--.  1 root root   1304 dic 28 12:23 my.cnf
+drwxr-xr-x.  2 root root      6 sep 13 14:07 my.cnf.d
+-rw-r--r--.  1 root root   1243 dic 28 10:02 my-inicial.cnf
+-rw-r--r--.  1 root root   8892 jun  9  2014 nanorc
+drwxr-xr-x.  7 root root    134 jun  9  2021 NetworkManager
+-rw-r--r--.  1 root root     58 nov 16  2020 networks
+-rw-r--r--.  1 root root   1746 dic 27 12:20 nsswitch.conf
+-rw-r--r--.  1 root root   1735 oct 30  2018 nsswitch.conf.bak
+-rw-r--r--.  1 root root   1938 may 18  2022 nsswitch.conf.rpmnew
+drwxr-xr-x.  3 root root     36 dic 27 15:37 openldap
+drwxr-xr-x.  2 root root      6 abr 10  2018 opt
+lrwxrwxrwx.  1 root root     21 dic 27 15:36 os-release -> ../usr/lib/os-release
+drwxr-xr-x.  2 root root   4096 dic 28 12:16 pam.d
+-rw-r--r--.  1 root root    894 dic 28 10:44 passwd
+-rw-r--r--.  1 root root    851 dic 28 10:44 passwd-
+drwxr-xr-x.  3 root root     21 dic 27 12:19 pkcs11
+drwxr-xr-x. 10 root root    116 dic 27 12:21 pki
+drwxr-xr-x.  2 root root     28 dic 27 15:38 plymouth
+drwxr-xr-x.  5 root root     52 dic 27 12:19 pm
+drwxr-xr-x.  5 root root     72 ene 25  2022 polkit-1
+drwxr-xr-x.  2 root root      6 jun  9  2014 popt.d
+drwxr-xr-x.  2 root root    154 dic 27 15:38 postfix
+drwxr-xr-x.  3 root root    123 dic 27 15:37 ppp
+drwxr-xr-x.  2 root root    111 dic 27 15:37 prelink.conf.d
+-rw-r--r--.  1 root root    233 jun  7  2013 printcap
+-rw-r--r--.  1 root root   1819 mar 31  2020 profile
+drwxr-xr-x.  2 root root    251 dic 27 15:37 profile.d
+-rw-r--r--.  1 root root   6545 mar 31  2020 protocols
+-rw-------.  1 root root      0 dic 27 12:20 .pwd.lock
+drwxr-xr-x.  2 root root     35 dic 27 15:37 python
+lrwxrwxrwx.  1 root root     10 dic 27 15:36 rc0.d -> rc.d/rc0.d
+lrwxrwxrwx.  1 root root     10 dic 27 15:36 rc1.d -> rc.d/rc1.d
+lrwxrwxrwx.  1 root root     10 dic 27 15:36 rc2.d -> rc.d/rc2.d
+lrwxrwxrwx.  1 root root     10 dic 27 15:36 rc3.d -> rc.d/rc3.d
+lrwxrwxrwx.  1 root root     10 dic 27 15:36 rc4.d -> rc.d/rc4.d
+lrwxrwxrwx.  1 root root     10 dic 27 15:36 rc5.d -> rc.d/rc5.d
+lrwxrwxrwx.  1 root root     10 dic 27 15:36 rc6.d -> rc.d/rc6.d
+drwxr-xr-x. 10 root root    127 dic 27 15:37 rc.d
+lrwxrwxrwx.  1 root root     13 dic 27 15:37 rc.local -> rc.d/rc.local
+lrwxrwxrwx.  1 root root     14 dic 27 15:36 redhat-release -> centos-release
+-rw-r--r--.  1 root root     74 dic 28 12:16 resolv.conf
+-rw-r--r--.  1 root root      1 dic 27 12:50 resolv.conf.save
+-rw-r--r--.  1 root root   1634 dic 24  2012 rpc
+drwxr-xr-x.  2 root root     87 dic 27 15:56 rpm
+-rw-r--r--.  1 root root   3232 ene 13  2022 rsyslog.conf
+drwxr-xr-x.  2 root root     25 may 31  2022 rsyslog.d
+-rw-r--r--.  1 root root   1008 nov 16  2020 rwtab
+drwxr-xr-x.  2 root root     23 nov 16  2020 rwtab.d
+drwxr-xr-x.  2 root root     24 dic 27 15:38 sasl2
+-rw-------.  1 root root    221 mar 31  2020 securetty
+drwxr-xr-x.  6 root root   4096 dic 27 15:37 security
+drwxr-xr-x.  5 root root     81 nov 16  2020 selinux
+-rw-r--r--.  1 root root 670293 jun  7  2013 services
+-rw-r--r--.  1 root root    216 mar 31  2020 sestatus.conf
+----------.  1 root root    613 dic 28 10:44 shadow
+----------.  1 root root    584 dic 28 10:44 shadow-
+-rw-r--r--.  1 root root     44 mar 31  2020 shells
+drwxr-xr-x.  2 root root     62 dic 27 15:36 skel
+drwxr-xr-x.  2 root root    225 dic 27 15:38 ssh
+drwxr-xr-x.  2 root root     19 dic 27 15:37 ssl
+-rw-r--r--.  1 root root    212 nov 16  2020 statetab
+drwxr-xr-x.  2 root root      6 nov 16  2020 statetab.d
+-rw-r--r--.  1 root root     20 dic 28 10:44 subgid
+-rw-r--r--.  1 root root      0 mar 31  2020 subgid-
+-rw-r--r--.  1 root root     20 dic 28 10:44 subuid
+-rw-r--r--.  1 root root      0 mar 31  2020 subuid-
+-rw-r-----.  1 root root   1786 sep 30  2020 sudo.conf
+-r--r-----.  1 root root   4328 sep 30  2020 sudoers
+drwxr-x---.  2 root root      6 oct 14  2021 sudoers.d
+-rw-r-----.  1 root root   3181 sep 30  2020 sudo-ldap.conf
+drwxr-xr-x.  6 root root   4096 dic 28 09:53 sysconfig
+-rw-r--r--.  1 root root    449 nov 16  2020 sysctl.conf
+drwxr-xr-x.  2 root root     28 dic 27 15:37 sysctl.d
+drwxr-xr-x.  4 root root    151 dic 27 15:37 systemd
+lrwxrwxrwx.  1 root root     14 dic 27 15:36 system-release -> centos-release
+-rw-r--r--.  1 root root     23 nov 23  2020 system-release-cpe
+drwxr-xr-x.  2 root root      6 sep  6  2017 terminfo
+drwxr-xr-x.  2 root root      6 sep  1 09:57 tmpfiles.d
+drwxr-xr-x.  3 root root    109 dic 27 15:38 tuned
+drwxr-xr-x.  3 root root     54 dic 27 15:39 udev
+-rw-r--r--.  1 root root    163 dic 27 12:19 .updated
+-rw-r--r--.  1 root root     40 dic 27 12:24 vconsole.conf
+-rw-r--r--.  1 root root   1982 dic 15  2020 virc
+drwxr-xr-x.  5 root root   4096 dic 28 12:16 vmware-tools
+-rw-r--r--.  1 root root   4479 may 15  2019 wgetrc
+drwxr-xr-x.  2 root root     33 dic 27 15:37 wpa_supplicant
+drwxr-xr-x.  5 root root     57 dic 27 12:20 X11
+drwxr-xr-x.  4 root root     38 dic 27 12:20 xdg
+drwxr-xr-x.  2 root root      6 abr 10  2018 xinetd.d
+drwxr-xr-x.  6 root root    100 dic 27 15:38 yum
+-rw-r--r--.  1 root root    970 oct  1  2020 yum.conf
+drwxr-xr-x.  2 root root   4096 dic 28 11:46 yum.repos.d
+[root@almacen_cgmaig etc]# cd /tomcat
+-bash: cd: /tomcat: No existe el fichero o el directorio
+[root@almacen_cgmaig etc]# cd /
+[root@almacen_cgmaig /]# cd /
+[root@almacen_cgmaig /]# history
+    1  hostnamectl set-hostname almacen_cgmaig
+    2  yum -y update
+    3  yum -y install wget
+    4  yum localinstall https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
+    5  yum --enablerepo=mysql80-community install mysql.community-server
+    6  vi /etc/yum.repos.d/mysql-community.repo
+    7  yum -y install mysql-server
+    8  systemctl status mysqld
+    9  systemctl start mysqld
+   10  systemctl enable mysqld
+   11  systemctl status mysqld
+   12  grep 'temporary password' /var/log/mysqld.log
+   13  mysql -u root -p
+   14  systemctl status mysqld
+   15  yum install tomcat
+   16  systemctl status tomc
+   17  systemctl status tomcat
+   18  systemctl start tomcat
+   19  systemctl status tomcat
+   20  systemctl enable tomcat
+   21  cd ..
+   22  ls
+   23  cd etc/
+   24  cd ..
+   25  cd tmp/
+   26  cd vmware-tools-distrib/
+   27  yum install perl
+   28  yum install net-tools
+   29  ./vmware-install.pl
+   30  d /
+   31  cd /
+   32  opt
+   33  cd opt/
+   34  ls
+   35  chmod 777 jdk-17.0.5_linux-x64_bin.tar.gz
+   36  ls
+   37  ls -l
+   38  tar xzf jdk-17.0.5_linux-x64_bin.tar.gz
+   39  ls
+   40  cd /opt/jdk-17.0.5
+   41  alternatives --install /usr/bin/java java /opt/jdk-17.0.5/bin/java 2
+   42  alternatives --config java
+   43  alternatives --install /usr/bin/jar jar /otp/jdk-17.0.5/bin/jar 2
+   44  alternatives --install /usr/bin/javac javac /opt/jdk-17.0.5/bin/javac 2
+   45  alternatives --set jar /opt/jdk-17.0.5/bin/jar
+   46  alternatives --set javac /opt/jdk-17.0.5/bin/javac
+   47  java -version
+   48  export JAVA_HOME=/opt/jdk-17.0.5
+   49  export JRE_HOME=/opt/jdk-17.0.5/jre
+   50  export PATH=$PATH:/opt/jdk-17.0.5/bin/:/opt/jdk-17.0.5/jre/bin
+   51  java -version
+   52  history
+   53  ls
+   54  ls -l
+   55  cd /var/
+   56  cd /www/html
+   57  cd /www
+   58  cd /www/
+   59  ls
+   60  ls -s
+   61  ls -la
+   62  cd ..
+   63  systemctl status tomcat
+   64  systemctl restart tomcat
+   65  systemctl status tomcat
+   66  systemctl restart java
+   67  systemctl status java
+   68  cd usr/lib/systemd/system
+   69  ls
+   70  yum install java-1.8.0-openjdk
+   71  systemctl status tomcat
+   72  cat / etc / sysconfig / iptables
+   73  cat /etc/sysconfig/iptables
+   74  cat /etc/sysconfig/iptables-config
+   75  sudo firewall-cmd –permanent –add-port=80/tcp
+   76  sudo firewall-cmd –permanent –add-port=8080/tcp
+   77  firewall-cmd –permanent –add-port=8080/tcp
+   78  firewall-cmd --permanent --add-port=8080/tcp
+   79  firewall-cmd --permanent --add-port=8080/udp
+   80  firewall-cmd --reload
+   81  systemctl status firewalld
+   82  java -version
+   83  yum -y update
+   84  java -version
+   85  systemctl status firewalld
+   86  systemctl restart firewalld
+   87  firewall-cmd --permanent --add-port=3306/tcp
+   88  firewall-cmd --permanent --add-port=3306/udp
+   89  firewall-cmd --reload
+   90  systemctl status firewalld
+   91  systemctl status tomcat
+   92  systemctl restart tomcat
+   93  systemctl status tomcat
+   94  yum uninstall tomcat
+   95  yum remove tomcat
+   96  systemctl status tomcat
+   97  systemctl status mysqld
+   98  semanage port -a -t mysqld_port_t 3306 -p tcp
+   99  yum install policycoreutils-python
+  100  semanage port -a -t mysqld_port_t 3306 -p tcp
+  101  iptables -I INPUT -p tcp –dport 3306 -m state –state NEW,ESTABLISHED -j ACCEPT
+  102  service iptables save
+  103  cd /
+  104  cat /etc/my.cnf
+  105  vi /etc/my.cnf
+  106  mv /etc/my.cnf /etc/my-inicial.cnf
+  107  ls /etc/
+  108  mv /etc/my-inicial.cnf /etc/my.cnf
+  109  ls /etc/
+  110  cp /etc/my.cnf /etc/my-inicial.cnf
+  111  ls /etc/
+  112  vi /etc/my.cnf
+  113  vi /etc/my.cnf.d/
+  114  vi /etc/my.cnf
+  115  systemctl status mysqld
+  116  systemctl restart mysqld
+  117  systemctl status mysqld
+  118  cat /etc/my.cnf
+  119  vi /etc/my.cnf
+  120  systemctl restart mysqld
+  121  systemctl status mysqld
+  122  rm -rf /etc/my.cnf
+  123  cp /etc/my-inicial.cnf /etc/my.cnf
+  124  systemctl restart mysqld
+  125  systemctl status mysqld
+  126  mysql -u root -p
+  127  cat nano /etc/mysql/mysql.conf.d/mysqld.cnf
+  128  cat /etc/mysql/mysql.conf.d/mysqld.cnf
+  129  systemctl status tomcat
+  130  yum remove mysqld
+  131  yum remove mysql
+  132  yum install java-1.8.0-openjdk-devel
+  133  wget https://downloads.apache.org/tomcat/tomcat-10/v10.0.20/bin/apache-tomcat-10.0.20.tar.gz
+  134  useradd -m -U -k /dev/null -d /opt/tomcat -s /bin/false tomcat
+  135  tar xf apache-tomcat-10.0.20.tar.gz -C /opt/tomcat/
+  136  ln -s /opt/tomcat/apache-tomcat-10.0.20 /opt/tomcat/apache-tomcat
+  137  yum install -y wget
+  138  wget https://downloads.apache.org/tomcat/tomcat-10/v10.0.20/bin/apache-tomcat-10.0.27.tar.gz
+  139  wget https://downloads.apache.org/tomcat/tomcat-10/v10.0.27/bin/apache-tomcat-10.0.27.tar.gz
+  140  userdel tomcat
+  141  cd /home/
+  142  ls
+  143  cd ..
+  144  sudo useradd -m -U -k /dev/null -d /opt/tomcat -s /bin/false tomcat
+  145  tar xf apache-tomcat-10.0.27.tar.gz -C /opt/tomcat/
+  146  ln -s /opt/tomcat/apache-tomcat-10.0.20 /opt/tomcat/apache-tomcat
+  147  ln -s /opt/tomcat/apache-tomcat-10.0.27 /opt/tomcat/apache-tomcat
+  148  cd /opt/tomcat/apache-tomcat
+  149  ls /opt/tomcat
+  150  ls -l /opt/tomcat
+  151  rm -rf /opt/tomcat/apache-tomcat
+  152  ls -l /opt/tomcat
+  153  ln -s /opt/tomcat/apache-tomcat-10.0.27 /opt/tomcat/apache-tomcat
+  154  ls -l /opt/tomcat
+  155  chown -R tomcat: /opt/tomcat/apache-tomcat/
+  156  vi /etc/systemd/system/tomcat10.service
+  157  systemctl status tomcat10
+  158  systemctl start tomcat10
+  159  systemctl status tomcat10
+  160  systemctl enable tomcat10
+  161  firewall-cmd --permanent --add-port=8080/tcp
+  162  firewall-cmd --reload
+  163  find / -name context.xml
+  164  cat /opt/tomcat/apache-tomcat-10.0.27/webapps/examples/META-INF/context.xml
+  165  cp /opt/tomcat/apache-tomcat-10.0.27/webapps/examples/META-INF/context.xml /opt/tomcat/apache-tomcat-10.0.27/webapps/examples/META-INF/context-respaldo.xml
+  166  ls -l /opt/tomcat/apache-tomcat-10.0.27/webapps/examples/META-INF
+  167  vi /opt/tomcat/apache-tomcat-10.0.27/webapps/examples/META-INF/context.xml
+  168  systemctl restart tomcat10
+  169  systemctl status tomcat10
+  170  systemctl stop tomcat10
+  171  systemctl status tomcat10
+  172  systemctl start tomcat10
+  173  systemctl status tomcat10
+  174  vi /opt/tomcat/apache-tomcat-10.0.27/webapps/examples/META-INF/context.xml
+  175  systemctl start tomcat10
+  176  systemctl status tomcat10
+  177  cat /opt/tomcat/apache-tomcat-10.0.27/conf/tomcat-users.xml
+  178  vi /opt/tomcat/apache-tomcat-10.0.27/conf/tomcat-users.xml
+  179  systemctl restart tomcat10
+  180  systemctl status tomcat10
+  181  cat /opt/tomcat/apache-tomcat-10.0.27/conf/tomcat-users.xml
+  182  cd /
+  183  ls
+  184  cd /opt/tomcat/apache-tomcat-10.0.27/webapps/manager/META-INF/
+  185  ls
+  186  cat context.xml
+  187  ls
+  188  ls -l /opt/tomcat/apache-tomcat-10.0.27/webapps/manager/META-INF
+  189  cat /opt/tomcat/apache-tomcat-10.0.27/webapps/examples/META-INF/context.xml
+  190  rm -rf /opt/tomcat/apache-tomcat-10.0.27/webapps/examples/META-INF/context.xml
+  191  mv /opt/tomcat/apache-tomcat-10.0.27/webapps/examples/META-INF/context-respaldo.xml /opt/tomcat/apache-tomcat-10.0.27/webapps/examples/META-INF/context.xml
+  192  cat /opt/tomcat/apache-tomcat-10.0.27/webapps/examples/META-INF/context.xml
+  193  cat /opt/tomcat/apache-tomcat-10.0.27/webapps/manager/META-INF/context.xml
+  194  vi /opt/tomcat/apache-tomcat-10.0.27/webapps/manager/META-INF/context.xml
+  195  systemctl restart tomcat10
+  196  systemctl status tomcat10
+  197  cd /
+  198  wget https://repo.mysql.com/mysql80-community-release-el8-6.noarch.rpm
+  199  wget https://repo.mysql.com/mysql80-community-release-el8-1.noarch.rpm
+  200  yum localinstall mysql80-community-release-el8-1.noarch.rpm
+  201  yum install mysql-community-server
+  202  service mysqld start
+  203  systemctl enable mysqld.service
+  204  systemctl status mysqld.service
+  205  mysql --version
+  206  grep 'temporary password' /var/log/mysqld.log
+  207  mysql_secure_installation
+  208  mysql -u root -p
+  209  yum update mysql-server
+  210  cat /etc/mysql/mysql.conf.d/mysqld.cnf
+  211  cat /etc/my.cnf
+  212  cd /
+  213  find / -name mysql.conf
+  214  cat /usr/lib/tmpfiles.d/mysql.conf
+  215  cd /etc/my.cnf.d/
+  216  ls
+  217  cat
+  218  ls
+  219  cd /
+  220  find / -name mysqld.cnf
+  221  cd /etc/my.con.cnf
+  222  find / -name my.conf.cnf
+  223  find / -name my.con.cnf
+  224  mysql -u root
+  225  mysql -u root -p
+  226  nano  /etc/my.cnf
+  227  yum install nano
+  228  nano  /etc/my.cnf
+  229  systemctl status mysqld
+  230  systemctl restart  mysqld
+  231  nano  /etc/my.cnf
+  232  systemctl restart  mysqld
+  233  nano  /etc/my.cnf
+  234  cd  /etc/my.cnf.d/
+  235  ls
+  236  ls -al
+  237  cd ..
+  238  ls
+  239  semanage port -a -t mysqld_port_t 3306 -p tcp
+  240  nano selinux/config
+  241  reboot
+  242  systemctl status network.service
+  243  systemctl enable network.service
+  244  systemctl restart network.service
+  245  systemctl enable network.service
+  246  systemctl status network.service
+  247  cd ..
+  248  cd  /etc/sysconfig/network-scripts/
+  249  ls
+  250  cat ifcfg-ens192
+  251  systemctl status network.service
+  252  cd ..
+  253  cd  /
+  254  ls
+  255  mount /dev/cdrom /mnt/cdrom/
+  256  df -h
+  257  mount /dev/cdrom /mnt/cdrom/
+  258  cd /tmp/
+  259  tar zxpf /mnt/cdrom/VMwareTools-9.4.5-1598834.tar.gz
+  260  umount /dev/cdrom
+  261  cd vmware-tools-distrib/
+  262  yum install perl
+  263  yum install net-tools
+  264  ./vmware-install.pl
+  265  ./vmware-install.pl install
+  266  nano ./vmware-install.pl install
+  267  ./vmware-install.pl
+  268  ls
+  269  ./vmware-install.pl
+  270  ./vmware-install.pl install
+  271  yum install./vmware-install.pl
+  272  ./vmware-install.pl --help
+  273  ./vmware-install.pl -help
+  274  --help ./vmware-install.pl
+  275  ./vmware-install.pl install
+  276  cd /
+  277  ls
+  278  cd dev/cdrom
+  279  cd /etc/
+  280  ls
+  281  cd
+  282  cd vmware-tools-distrib/
+  283  cd /tmp/
+  284  cd vmware-tools-distrib/
+  285  ./vmware-install.pl
+  286  ./vmware-install.pl INSTALL
+  287  ls vmware-install.pl
+  288  ls -la vmware-install.pl
+  289  yum install perl
+  290  yum - y update
+  291  yum -y update
+  292  ping www.google.com
+  293  ping 1.1.1.1
+  294  cd /
+  295  ls
+  296  cd /etc/sysconfig/network-scripts/
+  297  ls
+  298  cat ifcfg-lo
+  299  cat ifcfg-ens192
+  300  vi ifcfg-ens192
+  301  systemctl restart network.service
+  302  systemctl status network.service
+  303  ls
+  304  cd /
+  305  ls
+  306  ls - la
+  307  ls -la
+  308  cd /var
+  309  ls -la
+  310  cd /
+  311  ls -la
+  312  cd /etc/
+  313  ls -la
+  314  cd /tomcat
+  315  cd /
+  316  history
+[root@almacen_cgmaig /]# systemctl stop tomcat10
+[root@almacen_cgmaig /]# systemctl star tomcat10
+Unknown operation 'star'.
+[root@almacen_cgmaig /]# systemctl start tomcat10
+[root@almacen_cgmaig /]# client_loop: send disconnect: Connection reset
+
+C:\Users\ssocial>
